@@ -1,0 +1,69 @@
+@import "bootstrap";
+body {
+     padding-top:50px;
+}
+#logo {
+     padding:15px;
+     float:left;
+     font-size:18px;
+     color:#ddd;
+     &:hover {
+          text-decoration:none;
+          color:#fff;
+     }
+}
+.navbar .nav {
+     li {
+          a {
+               padding:15px;
+               color:#ddd;
+               font-size:14px;
+               line-height:20px;
+          }
+     }
+}
+
+.clear {
+     clear:both;
+}
+.tourney {
+     overflow:hidden;
+}
+.round {
+     float:left;
+     width:100px;
+}
+.round2 {
+     margin-top:2em;
+     float:left;
+     width:100px;
+}
+.matchup {
+     margin-bottom:1em;
+     border-right:2px solid black;
+}
+.team-name {
+}
+.team {
+     padding:2px;
+     background-color:orange;
+}
+.seed {
+     color:red;
+}
+.spacer {
+     text-align:center;
+     position:relative;
+     height:30px;
+}
+ .score {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     height: 50%;
+     width: 50%;
+     margin: -8% 0 0 -25%;
+}
+.round2 .spacer {
+     height:72px;
+}

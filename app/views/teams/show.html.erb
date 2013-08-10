@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+  <strong>Age group:</strong>
+  <%= @team.age_group %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @team.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @team.state %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @team.contact %>
+</p>
+
+<p>
+     <strong>Players (<%= @team.players.count %>):</strong>
+     <table class="table">
+          <th>Name</th>
+          <th>Height</th>
+          <th>Weight</th>
+          <th>Phone</th>
+          <%= render @players %>
+     </table>
+</p>
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>

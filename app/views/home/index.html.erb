@@ -1,0 +1,23 @@
+<div class="center hero-unit">
+  <h1>Brackit</h1>
+
+  <h2>
+    This is the home page for the
+    <a href="http://railstutorial.org/">Brackit</a>
+    sample application.
+  </h2>
+  <%= link_to "Players", players_path %>
+  <%= link_to "Teams", teams_path %>
+  <%= link_to "Games", games_path %>
+</div>
+<div class="tourney">
+<div id="quadrant1">
+     <div class="round">
+                    <%= render 'home/game' %>
+     </div>
+     <div class="round2">
+               <%= render 'home/next_game' %>
+     </round>
+</div>
+</div>
+<div class="clear"></div>
