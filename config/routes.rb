@@ -1,4 +1,6 @@
 BrackitApp::Application.routes.draw do
+  resources :age_groups
+
   #resources :tournaments do
   #   resources :brackets
 #end
