@@ -1,5 +1,5 @@
 class BracketsController < ApplicationController
-     before_action :set_tournament
+     #before_action :set_tournament
   before_action :set_bracket, only: [:show, :edit, :update, :destroy]
 
   # GET /brackets
@@ -64,9 +64,9 @@ class BracketsController < ApplicationController
   end
 
   private
-     def set_tournament
-          @tournament = Tournament.find(params[:tournament_id])
-     end
+     #def set_tournament
+          #@tournament = Tournament.find(params[:tournament_id])
+     #end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_bracket

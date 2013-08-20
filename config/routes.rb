@@ -1,7 +1,7 @@
 BrackitApp::Application.routes.draw do
-  resources :tournaments do
-     resources :brackets
-end
+  #resources :tournaments do
+  #   resources :brackets
+#end
 
   resources :games
 
@@ -9,6 +9,8 @@ end
   resources :players
   resources :teams
   resources :games
+  resources :brackets
+  resources :tournaments
 
   root :to => "home#index"
 

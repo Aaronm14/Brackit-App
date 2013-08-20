@@ -15,6 +15,16 @@
      <p><%= team.name %></p>
      <% end %>
 
+  <div class="field">
+    <%= f.label :age_group %><br />
+    <%= f.number_field :age_group %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tournament %><br />
+    <%= f.collection_select :tournament_id, Tournament.all, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
