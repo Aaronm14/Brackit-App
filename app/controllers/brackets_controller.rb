@@ -11,16 +11,22 @@ class BracketsController < ApplicationController
   # GET /brackets/1
   # GET /brackets/1.json
   def show
+    @teams = Team where
   end
 
   # GET /brackets/new
   def new
     @bracket = Bracket.new
-    @teams = Team.all
   end
 
   # GET /brackets/1/edit
   def edit
+  end
+
+  def add_teams
+    @bracket = Bracket.new(bracket_params)
+    @teams = @bracket.age_group.teams
+    #A
   end
 
   # POST /brackets
@@ -29,6 +35,7 @@ class BracketsController < ApplicationController
     @bracket = Bracket.new(bracket_params)
 
     respond_to do |format|
+      # magic TODO check validity, then conditionally rediriect ..with bracket_params
       if @bracket.save
         format.html { redirect_to @bracket, notice: 'Bracket was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bracket }
