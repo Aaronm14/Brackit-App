@@ -11,7 +11,9 @@ class BracketsController < ApplicationController
   # GET /brackets/1
   # GET /brackets/1.json
   def show
-    @teams = Team where
+    #@teams = Team where
+    @bracket = Bracket.find(params[:id])
+    @teams = Team.where("age_group_id = ?", @bracket[:age_group_id])
   end
 
   # GET /brackets/new
@@ -23,10 +25,11 @@ class BracketsController < ApplicationController
   def edit
   end
 
-  def add_teams
-    @bracket = Bracket.new(bracket_params)
-    @teams = @bracket.age_group.teams
-    #A
+  def add_teams(bracket_params)
+    @bracket = Bracket.find(params[:id])
+    #@teams = Team.all
+    @teams = Team.where("age_group_id=@bracket.age_group_id")
+    @numTeams = @teams.count
   end
 
   # POST /brackets
@@ -34,16 +37,25 @@ class BracketsController < ApplicationController
   def create
     @bracket = Bracket.new(bracket_params)
 
-    respond_to do |format|
+    #@bracket.save
+    @teams = Team.where("age_group_id = ?", bracket_params[:age_group_id])
+    @numTeams = @teams.count
+    @numGames = @numTeams - 1
+
+    render :action => 'add_teams'
+    #redirect_to add_teams(@bracket)
+
+    #respond_to do |format|
       # magic TODO check validity, then conditionally rediriect ..with bracket_params
-      if @bracket.save
-        format.html { redirect_to @bracket, notice: 'Bracket was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @bracket }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @bracket.errors, status: :unprocessable_entity }
-      end
-    end
+
+#      if @bracket.save
+#        format.html { redirect_to @bracket, notice: 'Bracket was successfully created.' }
+#        format.json { render action: 'show', status: :created, location: @bracket }
+#      else
+#        format.html { render action: 'new' }
+#        format.json { render json: @bracket.errors, status: :unprocessable_entity }
+#      end
+#    end
   end
 
   # PATCH/PUT /brackets/1
@@ -82,6 +94,6 @@ class BracketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bracket_params
-      params.require(:bracket).permit(:tournament_id)
+      params.require(:bracket).permit(:tournament_id, :age_group_id)
     end
 end

@@ -1,0 +1,20 @@
+
+  <%= @bracket.age_group.name %>
+  <ol>
+  <% @teams.each do |team| %>
+        <li><%= team.name %></li>
+  <% end %>
+</ol>
+Number Teams: <%= @numTeams %><br />
+Number Games: <%= @numGames %><br />
+<% n = @numTeams %>
+<% round = 1 %>
+<% while n >= 1 do %>
+  <% n = n / 2 %>
+
+  <% for n in 1..n %>
+    Round: <%= round %>
+  <% end %>
+
+  <% round +=1 %>
+<% end %>

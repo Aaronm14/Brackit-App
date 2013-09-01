@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @age_group.name %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @age_group.sex %>
+</p>
+
+
+<%= link_to 'Edit', edit_age_group_path(@age_group) %> |
+<%= link_to 'Back', age_groups_path %>

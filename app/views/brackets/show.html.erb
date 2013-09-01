@@ -3,9 +3,16 @@
 <p>
   <strong>Tournament:</strong>
   <%= @bracket.tournament_id %>
-
 </p>
 
+<p>
+  <strong>Teams:</strong>
+  <ol>
+  <% @teams.each do |team| %>
+        <li><%= team.name %></li>
+  <% end %>
+  </ol>
+</p>
 
 <%= link_to 'Edit', edit_bracket_path(@bracket) %> |
 <%= link_to 'Back', brackets_path %>

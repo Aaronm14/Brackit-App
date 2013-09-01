@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Tournament</th>
+      <th> Age Group ID</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,6 +15,7 @@
     <% @brackets.each do |bracket| %>
     <tr>
       <td><%= bracket.tournament_id %></td>
+      <td><%= bracket.age_group_id %></td>
       <td><%= link_to 'Show', bracket %></td>
       <td><%= link_to 'Edit', edit_bracket_path(bracket) %></td>
       <td><%= link_to 'Destroy', bracket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
