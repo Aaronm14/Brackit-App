@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :age_group %><br />
-    <%= f.number_field :age_group %>
+    <%= f.collection_select :age_group_id, AgeGroup.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :city %><br />
