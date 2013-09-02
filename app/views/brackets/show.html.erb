@@ -2,17 +2,29 @@
 
 <p>
   <strong>Tournament:</strong>
+  <%= @bracket.age_group.name %>
+</p>
+<p>
+  <strong>Age Group:</strong>
   <%= @bracket.tournament_id %>
 </p>
-
 <p>
-  <strong>Teams:</strong>
+  <strong>Teams (<%= @numTeams %>):</strong>
   <ol>
   <% @teams.each do |team| %>
         <li><%= team.name %></li>
   <% end %>
   </ol>
 </p>
+<p>
+  <strong>Games (<%= @numGames %>):</strong>
+  <ol>
+  <% @games.each do |game| %>
+        <li><%= @game %></li>
+  <% end %>
+  </ol>
+</p>
+
 
 <%= link_to 'Edit', edit_bracket_path(@bracket) %> |
 <%= link_to 'Back', brackets_path %>

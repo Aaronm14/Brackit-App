@@ -18,3 +18,64 @@ Number Games: <%= @numGames %><br />
 
   <% round +=1 %>
 <% end %>
+bracket test: <%= @bracketTEST %>
+bracket id:<%= @bracketId %>
+
+
+SHOW<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tournament:</strong>
+  <%= @bracket.age_group.name %>
+</p>
+<p>
+  <strong>Age Group:</strong>
+  <%= @bracket.tournament_id %>
+</p>
+<p>
+  <strong>Teams (<%= @numTeams %>):</strong>
+  <ol>
+  <% @teams.each do |team| %>
+        <li><%= team.name %></li>
+  <% end %>
+  </ol>
+</p>
+<p>
+  <strong>Games (<%= @numGames %>):</strong>
+  <ol>
+  <% @games.each do |game| %>
+        <li>Round: <%= game.round %></li>
+  <% end %>
+  </ol>
+</p>
+
+<!-- Bracket Creation -->
+<div class="bracket_container">
+  <% round = 1 %>
+  <div class="round round<%= round %>">
+  <% @games.each do |game| %>
+    <% if game.round != round %>
+      <% round+=1 %>
+      </div>
+      <div class="round round<%= game.round %>">
+    <% end %>
+    <div class="game">
+      <div class="team">
+        <span class="seed"><%= game.home_team.seed %></span>
+        <span class="team-name"><%= game.home_team.name %></span>
+      </div>
+      <div class="spacer">
+        <span class="score">82-48</span>
+      </div>
+      <div class="team">
+        <span class="seed"><%= game.away_team.seed %></span>
+        <span class="team-name"><%= game.away_team.name %></span>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+<!-- End Bracket Creation -->
+
+<%= link_to 'Edit', edit_bracket_path(@bracket) %> |
+<%= link_to 'Back', brackets_path %>

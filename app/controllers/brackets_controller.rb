@@ -36,11 +36,28 @@ class BracketsController < ApplicationController
   # POST /brackets.json
   def create
     @bracket = Bracket.new(bracket_params)
-
-    #@bracket.save
+    # @bracket.save
     @teams = Team.where("age_group_id = ?", bracket_params[:age_group_id])
     @numTeams = @teams.count
     @numGames = @numTeams - 1
+
+    @bracket.save
+
+    @bracketTEST = bracket_params()
+    @bracketId = @bracket.id
+
+    n = @numTeams
+    round = 1
+    while n >= 1 do
+      n = n / 2
+      for n in 1..n
+        @game = Game.new(bracket_id: @bracket.id, round: round, home_team_id: 1, away_team_id: 1)
+        @game.save
+      end
+      round += 1
+    end
+
+    @games = Game.where("bracket_id = ?", @bracket.id)
 
     render :action => 'add_teams'
     #redirect_to add_teams(@bracket)
@@ -94,6 +111,6 @@ class BracketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bracket_params
-      params.require(:bracket).permit(:tournament_id, :age_group_id)
+      params.require(:bracket).permit(:id, :tournament_id, :age_group_id)
     end
 end

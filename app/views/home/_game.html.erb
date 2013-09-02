@@ -1,14 +1,14 @@
 <% @games.each do |game| %>
 <div class="matchup">
      <div class="team">
-          <span class="seed">1</span>
+          <span class="seed"><%= game.home_team.seed %></span>
           <span class="team-name"><%= game.home_team.name %></span>
      </div>
      <div class="spacer">
           <span class="score">82-48</span>
      </div>
      <div class="team">
-          <span class="seed">8</span>
+          <span class="seed"><%= game.away_team.seed %></span>
           <span class="team-name"><%= game.away_team.name %></span>
      </div>
 </div>
