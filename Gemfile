@@ -6,8 +6,11 @@ gem 'rails', '4.0.0.beta1'
 gem 'bootstrap-sass', '2.3.1.0'
 gem 'taps'
 #gem 'mysql'
-gem 'sqlite3'
 gem 'yaml_db'
+
+group :development, :test do
+  gem 'sqlite3'
+end
 
 group :production do
   gem 'pg', '0.15.1'
