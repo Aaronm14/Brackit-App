@@ -15,3 +15,15 @@
 # # create your games here
 
 Tournament.create!(name: "Peach Jam", city: "Raleigh", state: "NC", start_date: "2013-05-26", end_date: "2013-05-26")
+
+AgeGroup.create!(name: "16u", sex: "male")
+AgeGroup.create!(name: "14u", sex: "female")
+
+Team.create!(name: "Triad Titans", age_group_id: "2", city: "Kernersville", state: "NC", contact:"1231234")
+Team.create!(name: "Raleigh Raptors", age_group_id: "1", city: "Raleigh", state: "NC", contact:"1231234")
+Team.create!(name: "Charlotte Stars", age_group_id: "1", city: "Charlotte", state: "NC", contact:"1231234")
+Team.create!(name: "Greensboro Gaters", age_group_id: "1", city: "Greensboro", state: "NC", contact:"1231234")
+Team.create!(name: "Kernersville Mavericks", age_group_id: "1", city: "Kernersville", state: "NC", contact:"1231234")
+Team.create!(name: "Atlanta Celtics", age_group_id: "1", city: "Atlants", state: "NC", contact:"1231234")
+Team.create!(name: "Winston Steal", age_group_id: "1", city: "Winston-Salem", state: "NC", contact:"1231234")
+Team.create!(name: "Watauga Storm", age_group_id: "1", city: "Boone", state: "NC", contact:"1231234")

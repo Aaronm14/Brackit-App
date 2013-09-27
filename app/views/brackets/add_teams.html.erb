@@ -36,7 +36,7 @@ SHOW<p id="notice"><%= notice %></p>
   <strong>Teams (<%= @numTeams %>):</strong>
   <ol>
   <% @teams.each do |team| %>
-        <li><%= team.name %></li>
+      <li><%= team.name %></li>
   <% end %>
   </ol>
 </p>
@@ -61,15 +61,21 @@ SHOW<p id="notice"><%= notice %></p>
     <% end %>
     <div class="game">
       <div class="team">
-        <span class="seed"><%= game.home_team.seed %></span>
+        <% unless game.home_team.nil? %>
+        <span class="seed">
+            <%= game.home_team.seed %>
+        </span>
         <span class="team-name"><%= game.home_team.name %></span>
+        <% end %>
       </div>
       <div class="spacer">
         <span class="score">82-48</span>
       </div>
       <div class="team">
-        <span class="seed"><%= game.away_team.seed %></span>
-        <span class="team-name"><%= game.away_team.name %></span>
+        <% unless game.away_team.nil? %>
+          <span class="seed"><%= game.away_team.seed %></span>
+          <span class="team-name"><%= game.away_team.name %></span>
+        <% end %>
       </div>
     </div>
   <% end %>

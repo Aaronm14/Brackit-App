@@ -1,15 +1,33 @@
-<% @games.each do |game| %>
-<div class="matchup">
-     <div class="team">
-          <span class="seed"><%= game.home_team.seed %></span>
-          <span class="team-name"><%= game.home_team.name %></span>
-     </div>
-     <div class="spacer">
-          <span class="score">82-48</span>
-     </div>
-     <div class="team">
+<!-- Bracket Creation -->
+<div class="bracket_container">
+  <% round = 1 %>
+  <div class="round round<%= round %>">
+  <% @games.each do |game| %>
+    <% if game.round != round %>
+      <% round+=1 %>
+      </div>
+      <div class="round round<%= game.round %>">
+    <% end %>
+    <div class="game">
+      <div class="team">
+        <% unless game.home_team.nil? %>
+        <span class="seed">
+            <%= game.home_team.seed %>
+        </span>
+        <span class="team-name"><%= game.home_team.name %></span>
+        <% end %>
+      </div>
+      <div class="spacer">
+        <span class="score">82-48</span>
+      </div>
+      <div class="team">
+        <% unless game.away_team.nil? %>
           <span class="seed"><%= game.away_team.seed %></span>
           <span class="team-name"><%= game.away_team.name %></span>
-     </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  </div>
 </div>
-<% end %>
+<!-- End Bracket Creation -->

@@ -14,6 +14,10 @@ class BracketsController < ApplicationController
     #@teams = Team where
     @bracket = Bracket.find(params[:id])
     @teams = Team.where("age_group_id = ?", @bracket[:age_group_id])
+    @games = Game.where("bracket_id = ?", @bracket[:id])
+
+    @numTeams = @teams.count
+    @numGames = @numTeams - 1
   end
 
   # GET /brackets/new
@@ -51,7 +55,7 @@ class BracketsController < ApplicationController
     while n >= 1 do
       n = n / 2
       for n in 1..n
-        @game = Game.new(bracket_id: @bracket.id, round: round, home_team_id: 1, away_team_id: 1)
+        @game = Game.new(bracket_id: @bracket.id, round: round, home_team_id: nil, away_team_id: nil)
         @game.save
       end
       round += 1
@@ -59,7 +63,8 @@ class BracketsController < ApplicationController
 
     @games = Game.where("bracket_id = ?", @bracket.id)
 
-    render :action => 'add_teams'
+    #render :action => 'add_teams'
+    redirect_to @bracket, notice: 'Bracket created successfully!'
     #redirect_to add_teams(@bracket)
 
     #respond_to do |format|
