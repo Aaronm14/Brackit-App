@@ -1,3 +1,63 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.test-page-container {
+  width:100%;
+  min-height:320px;
+  border-bottom:2px solid #333;
+  margin-bottom:35px;
+}
+.test-page {
+  border:1px solid #ddd;
+  width:400px;
+  text-align:center;
+  display:inline-block;
+  clear:both;
+  padding-bottom:10px;
+  position:relative;
+
+  input {
+    display:inline-block;
+
+  }
+  input[type="checkbox"], input[type="radio"] {
+     margin:0 5px 0 10px;
+     height:20px;
+  }
+  label {
+     display:inline-block;
+     vertical-align:middle;
+     margin:0;
+  }
+  .teamContainer {
+     float:left;
+     clear:both;
+  }
+  .page-number {
+    position:absolute;
+    top:0;
+    left:0;
+    padding:15px;
+    font-size:22px;
+    font-weight:bold;
+    color:green;
+  }
+}
+.test-notes {
+  width:450px;
+  display:inline-block;
+  margin-left:50px;
+  vertical-align:top;
+
+  li {
+    border-top:1px solid blue;
+    border-bottom:1px solid blue;
+    padding:3px;
+    margin-bottom:20px;
+  }
+
+  .last {
+      color:green;
+    }
+}

@@ -1,22 +1,78 @@
 <div class="center hero-unit">
-  <h1>Brackit</h1>
+  <h1>Las Vegas Fab 48</h1>
+</div>
 
-  <h2>
-    This is the home page for the
-    <a href="http://railstutorial.org/">Brackit</a>
-    sample application.
-  </h2>
-  <%= link_to "Players", players_path %>
-  <%= link_to "Teams", teams_path %>
-  <%= link_to "Games", games_path %>
-   <%= link_to "Brackets", brackets_path %>
-  <%= link_to "Tournaments", tournaments_path %>
+<div class="test-page-container">
+<div class="test-page">
+  <span class="page-number">1</span>
+  <h2>Add Team</h2>
+
+  <label>Age Group</label><select><option>16u</option></select>
+  <label>Team Name</label><input value="">
+  <br />
+  <input type="file" style="margin-top:10px; line-height:16px;"><br />
+  <input type="submit">
 </div>
-<div class="tourney">
-<div id="quadrant1">
-     <div class="round">
-                    <%= render 'home/game' %>
-     </div>
+
+<div class="test-notes">
+  <ol>
+    <li>Age Group and/or team name could just be parsed from spreadsheet instead of asking for it, or it could be added into the form</li>
+    <li>Should there be an option to create team directly on the site (adding players attributes etc from form on site?</li>
+    <li>If so, should it be the default, or a secondary option to uploading spreadsheet?</li>
+  </ol>
+  <span class="last">-->  "Team successfully added" and somehow show validation of this?</span>
 </div>
 </div>
-<div class="clear"></div>
+
+<div class="test-page-container">
+<div class="test-page">
+  <span class="page-number">2</span>
+  <h2>Create Bracket</h2>
+  <label>Name</label><input value="17u Platinum">
+  <br />
+  <label>Teams From:</label><br />
+  <select class="teamSelect" >
+    <<option value="0" selected="selected">Select Age Group</option>
+    <option value="teams16">16u</option>
+    <option value="teams17">17u</option>
+    <option value="teams14">14u</option>
+  </select>
+  <br>
+  <input type="radio">Boys</input><input type="radio">Girls</input>
+  <br />
+  <div id="teamList" style="border:1px solid #ddd; padding:10px 50px; width:40%; margin:0 auto; overflow-y:scroll; height:75px; margin-top:10px;">
+    <span>Select an Age Group Above</span>
+    <!-- Teams get populated here, HTML gets changed every time drop down changes -->
+  </div>
+</div>
+
+<div class="test-notes">
+  <ol>
+    <li>Test 1</li>
+    <li>Test 2</li>
+  </ol>
+</div>
+</div>
+
+
+<label>Teams From:</label>
+
+
+
+
+<script type="text/javascript">
+
+  var teams17 = ["Titans17","Hornets","Gaters","Hurricanes","Warriors","Titans17","Hornets","Gaters","Hurricanes","Warriors"];
+  var teams16 = ["Mavericks16","76ers","Thunder","Pelicans","Mavericks16","76ers","Thunder","Pelicans"];
+  var teams14 = ["Team14","Grizzlies","Eagles","Team14","Grizzlies","Eagles","Team14","Grizzlies","Eagles"];
+
+$('.teamSelect').change( function() {
+  var selectedAge = this.value;
+  var selectedAgeArray = window[selectedAge];
+
+  $('#teamList').html('');
+  for(i=0; i < selectedAgeArray.length; i++) {
+    $('#teamList').append("<div class=\"teamContainer\"><input type=\"checkbox\" id=\"check"+i+"\" checked><label for=\"check"+ i + "\">" + selectedAgeArray[i].toString() + "</label></div>");
+  }
+});
+</script>
