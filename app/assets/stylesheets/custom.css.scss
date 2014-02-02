@@ -54,6 +54,9 @@ body {
         height:12em;
      }
 }
+.round4 {
+     margin-top:12.5em;
+}
 .game {
      margin-bottom:1em;
      border-right:.2em solid black;
@@ -64,6 +67,9 @@ body {
      padding:.25em;
      background-color:orange;
      min-height:1.45em; /* Total Height of 25px */
+}
+.team:hover {
+     cursor:pointer;
 }
 .seed {
      color:red;

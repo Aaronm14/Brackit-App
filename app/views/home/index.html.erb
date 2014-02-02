@@ -64,7 +64,8 @@
 
   var teams17 = ["Titans17","Hornets","Gaters","Hurricanes","Warriors","Titans17","Hornets","Gaters","Hurricanes","Warriors"];
   var teams16 = ["Mavericks16","76ers","Thunder","Pelicans","Mavericks16","76ers","Thunder","Pelicans"];
-  var teams14 = ["Team14","Grizzlies","Eagles","Team14","Grizzlies","Eagles","Team14","Grizzlies","Eagles"];
+  var teams14 = ["Team14","Grizzlies","Eagles","Team14","Grizzlies","Eagles","Team14","Grizzlies","Eagles"
+  ];
 
 $('.teamSelect').change( function() {
   var selectedAge = this.value;
@@ -75,4 +76,110 @@ $('.teamSelect').change( function() {
     $('#teamList').append("<div class=\"teamContainer\"><input type=\"checkbox\" id=\"check"+i+"\" checked><label for=\"check"+ i + "\">" + selectedAgeArray[i].toString() + "</label></div>");
   }
 });
+</script>
+
+
+
+
+
+
+
+
+<div class="bracket_container">
+  <div class="round round1">
+    <div class="game game1">
+      <div class="team slot1">Triad Titans
+      </div>
+      <div class="spacer">
+        <span class="score">(1)82-48</span>
+      </div>
+      <div class="team slot2">Gaters
+      </div>
+    </div>
+    <div class="game game2">
+      <div class="team slot3">Hurricanes
+      </div>
+      <div class="spacer">
+        <span class="score">(2)82-48</span>
+      </div>
+      <div class="team slot4">Warriors
+      </div>
+    </div>
+    <div class="game game3">
+      <div class="team slot5">Raptors
+      </div>
+      <div class="spacer">
+        <span class="score">(3)82-48</span>
+      </div>
+      <div class="team slot6">Stars
+      </div>
+    </div>
+    <div class="game game4">
+      <div class="team slot7">Storm
+      </div>
+      <div class="spacer">
+        <span class="score">(4)82-48</span>
+      </div>
+      <div class="team slot8">Mavericks
+      </div>
+    </div>
+      </div>
+      <div class="round round2">
+    <div class="game game5">
+      <div class="team slot9">
+      </div>
+      <div class="spacer">
+        <span class="score">(5)82-48</span>
+      </div>
+      <div class="team slot10">
+      </div>
+    </div>
+    <div class="game game6">
+      <div class="team slot11">
+      </div>
+      <div class="spacer">
+        <span class="score">(6)82-48</span>
+      </div>
+      <div class="team slot12">
+      </div>
+    </div>
+      </div>
+      <div class="round round3">
+    <div class="game game7">
+      <div class="team slot13">
+      </div>
+      <div class="spacer">
+        <span class="score">(7)82-48</span>
+      </div>
+      <div class="team slot14">
+      </div>
+    </div>
+  </div>
+      <div class="round round4">
+    <div class="game game8 winner">
+      <div class="team slot15">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+var numTeams = 8;
+var numGames = numTeams - 1;
+
+  $('.team').click(function() {
+
+
+    var parentClasses = $(this).parent().attr('class');
+    var parentLastClass = parentClasses.split(' ').pop();
+    var thisGame = parentLastClass.substr(parentLastClass.length - 1);
+    console.log(parentClasses);
+    console.log(parentLastClass);
+    console.log(thisGame);
+    var targetGame = parseInt(thisGame) + parseInt(numTeams);
+    console.log(targetGame);
+    var teamName = $(this).text();
+
+    $('.slot'+targetGame).text(teamName);
+  });
 </script>
