@@ -2,4 +2,19 @@
 
 <%= render 'form' %>
 
+<div class="test"></div>
+
 <%= link_to 'Back', brackets_path %>
+
+<script type="text/javascript">
+$('#bracket_age_group_id').change(function() {
+  console.log($('#bracket_age_group_id option:selected').text());
+  $.getJSON('/brackets/new', function(data) {
+    console.log(data[0].name);
+    console.log(data);
+    for(i=0; i<data.length; i++) {
+      $('.test').append(data[i].name)
+    }
+  });
+});
+</script>

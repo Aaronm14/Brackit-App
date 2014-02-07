@@ -23,6 +23,8 @@ class BracketsController < ApplicationController
   # GET /brackets/new
   def new
     @bracket = Bracket.new
+
+
   end
 
   # GET /brackets/1/edit
